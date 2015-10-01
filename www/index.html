@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Top Ten Books</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <!-- <link href="http://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet"> -->
+    
+<!--     <script src="http://code.ionicframework.com/nightly/js/ionic.min.js"></script>
+    <script src="http://code.ionicframework.com/nightly/js/angular/angular.min.js"></script>
+    <script src="http://code.ionicframework.com/nightly/js/angular/angular-animate.js"></script>
+    <script src="http://code.ionicframework.com/nightly/js/angular/angular-sanitize.min.js"></script> -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+<!--     <script src="http://code.ionicframework.com/nightly/js/ionic-angular.js"></script> -->
+    
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+     -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="lib/ionic/js/angular/angular-sanitize.min.js"></script>
+  </head>
+  <body>
+    <ion-nav-bar class="bar-balanced">
+      <ion-nav-back-button class="button-icon ion-arrow-left-c"></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+    <script id="templates/tabs.html" type="text/ng-template">
+      <ion-tabs class="tabs-icon-top tabs-balanced">
+
+        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
+          Home
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Random Top Ten Book" icon="ion-ios-book" href="#/tab/top_ten_book">
+         Random Top Ten Book
+          <ion-nav-view name="top-ten-book-tab"></ion-nav-view>
+        </ion-tab>
+
+
+
+      </ion-tabs>
+    </script>
+  </body>
+</html>
