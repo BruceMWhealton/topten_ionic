@@ -49,11 +49,15 @@ angular.module('starter', ['ionic', 'ngSanitize'])
 .controller('TopTenBookController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
     $http.get('http://toptenbooks.net/api/v1/the_list_service').success(function (data) {
         $scope.book_title = data[0].node_title;
-        $scope.body = data[0].body.replace(/img src="/g, 'img src="http://toptenbooks.net');
-        //$scope.body = data[0].body;
-
-
-
+        $scope.body = data[0].body;
+        angular.element(document).ready(function () {
+            var img = document.getElementsByTagName("img");
+            for (var i = 0; i < img.length; i++) {
+                if (img[i].getAttribute("src").indexOf("http:") == -1) {
+                    img[i].setAttribute("src", "http://toptenbooks.net/" + img[i].getAttribute("src"));
+                }
+            }
+        });
 
         $scope.doRefresh = function () {
             $http.get('http://toptenbooks.net/api/v1/the_list_service').success(function (data) {
@@ -69,20 +73,4 @@ angular.module('starter', ['ionic', 'ngSanitize'])
         console.log($scope.title);
         $scope.body = data.body.und[0].value.toString();
     });
-}]).directive('displayBookInfo', function () {
-    var displayBookInfo = {
-        link: function postLink(scope, iElement, iAttrs) {
-            angular.element(iElement).attr("src", "http://toptenbooks.net" + iAttrs.displayBookInfo);
-        }
-    }
-    return displayBookInfo;
-})
-.directive('displayBookInfoNew', function () {
-    return {
-        restrict: "E",
-        template: '<img src="http://toptenbooks.net/{{text}}">',
-        scope: {
-            text: "@text"
-        }
-    };
-});
+}]);

@@ -1,17 +1,15 @@
 <ion-view view-title="A Top Ten Book">
 
-  <ion-content>
-    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-    <ion-list>
-      <ion-item class="item-thumbnail-left item-icon-right item-text-wrap">
-        
-        <h2>{{book_title}}</h2>
-       
-        <div ng-bind-html="body"></div>
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <ion-item class="item-thumbnail-left item-icon-right item-text-wrap">
 
-          <!--<display-book-info-new text="/thebooks/sites/default/files/Antony%20and%20Cleopatra.jpg"></display-book-info-new>
-          <img display-book-info="/thebooks/sites/default/files/Antony%20and%20Cleopatra.jpg" />-->
-      </ion-item>
-    </ion-list>
-  </ion-content>
+                <h2>{{book_title}}</h2>
+
+                <div ng-bind-html="body"></div>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
