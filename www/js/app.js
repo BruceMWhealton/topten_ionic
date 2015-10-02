@@ -68,4 +68,20 @@ angular.module('starter', ['ionic', 'ngSanitize'])
       console.log($scope.title);
       $scope.body = data.body.und[0].value.toString();
     });
-  }]);
+}]).directive('displayBookInfo', function () {
+    var displayBookInfo = {
+        link: function postLink(scope, iElement, iAttrs) {
+            angular.element(iElement).attr("src", "http://toptenbooks.net" + iAttrs.displayBookInfo);
+        }
+    }
+    return displayBookInfo;
+})
+.directive('displayBookInfoNew', function () {
+    return {
+        restrict: "E",
+        template: '<img src="http://toptenbooks.net/{{text}}">',
+        scope: {
+            text: "@text"
+        }
+    };
+});
